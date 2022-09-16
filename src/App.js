@@ -1,23 +1,30 @@
+import { useEffect, useState } from 'react';
 import logo from './logo.svg';
+import Login from './pages/login/Login';
+import Todo from './pages/todo.js/Todo';
 
 function App() {
+  const [user, setUser] = useState(null)
+  useEffect(() => {
+    const name = JSON.parse(localStorage.getItem('name'));
+    if (name) {
+      setUser(name);
+    }
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    
+      {user ? (
+        <div>
+          <Todo />
+        </div>
+      ) : (
+        <div>
+          <Login />
+        </div>
+
+      )}
+    </>
   );
 }
 
