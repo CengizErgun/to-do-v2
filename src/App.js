@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import Login from './pages/login/Login';
-import Todo from './pages/todo.js/Todo';
+import Todo from './pages/todo/Todo';
 
 function App() {
   const [user, setUser] = useState(null)
@@ -18,11 +18,11 @@ function App() {
     <>    
       {user ? (
         <div>
-          <Todo user = {user} handleUser = {(data) => handleUser(data)}/>
+          <Todo user = {user} handleUser = {handleUser}/>
         </div>
       ) : (
         <div >
-          <Login handleUser = {(data) => handleUser(data)}/>
+          <Login handleUser = {handleUser}/>
         </div>
 
       )}

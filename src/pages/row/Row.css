@@ -1,0 +1,48 @@
+
+
+.row {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 2px;
+    /* padding: 1.4rem 2rem 1.6rem 1; */
+    background: rgba(57, 63, 84, 0.8);
+    color:white;
+    font-size: 2.4rem;
+    overflow: hidden;
+}
+
+.row p{
+    padding-left: 20px;
+
+}
+
+.row .buttons {
+    margin-left: auto;
+    font-size: 2.4rem;
+}
+
+.row .buttons button {
+    font-size: 2.4rem;
+}
+.row .buttons button:hover{
+    cursor: pointer;
+}
+
+
+.row .buttons :nth-child(1){
+    color:red;    
+}
+.row .buttons :nth-child(2){
+    margin-right: 10px;
+    margin-left: 10px;
+    color:blue;    
+}
+
+
+
+

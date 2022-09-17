@@ -64,9 +64,6 @@ html {
     padding: 4px 10px;
   }
 
-
-
-
   h1.demo {
     text-align: center;
     font-size: 2.4rem;
@@ -100,15 +97,6 @@ html {
     margin: 0 auto;
   }
 
-  /* .container .exit-button {
-    color: #7881A1;
-    font-size: 2.4rem;
-    line-height: 2.4rem;
-    vertical-align: middle;
-    transition: color 0.25s;
-    border: 2px solid #7881A1;
-    padding: 5px 15px;
-  } */
   
   @-webkit-keyframes gradient {
     0% {
