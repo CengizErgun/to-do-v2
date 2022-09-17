@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import './Login.css'
 
-function Login() {
+function Login({handleUser}) {
     const [name, setName] = useState("")
     const handleClick = () =>  {
         if(name.length < 3){
             alert("Your name length can not be lower than 3")
         }else{
             localStorage.setItem('name', JSON.stringify(name));
-            setName({ userName: name });
+            handleUser(name);
         }}  
     return (
         <>
