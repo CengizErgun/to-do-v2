@@ -46,32 +46,31 @@ export const baseService = {
         return response
     },
     add: async (url, data) => {
-
-        let response = {}
-
-        await axios.post(API_URL + url, data)
-            .then((res) => {
-                response = res.data;
-                return response;
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                isCompleted: false,
+                content: data
             })
-            .catch((err) => {
-                console.log('Error', err);
-            })
-
+        };
+        const response = await fetch(API_URL + url, requestOptions);
+        const result = await response.json();
+        return result
     },
 
-    update: async (url, id, data) => {
-
-        let response = {}
-        
-        await axios.put(API_URL + url + "/" + id, data)
-            .then((res) => {
-                response = res.data;
-                return response;
-            })
-            .catch((err) => {
-                console.log('Error', err);
-            })
+    update: async (url, id, data, content) => {
+        const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                ...data,
+                content: content
+                })
+        };
+        const response = await fetch(API_URL + url + '/' + id, requestOptions)
+        const result = await response.json() 
+        return result
     }
 
 }

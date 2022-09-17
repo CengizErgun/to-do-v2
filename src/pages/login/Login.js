@@ -10,6 +10,7 @@ function Login({handleUser}) {
             localStorage.setItem('name', JSON.stringify(name));
             handleUser(name);
         }}  
+    
     return (
         <>
             <div className="container">
