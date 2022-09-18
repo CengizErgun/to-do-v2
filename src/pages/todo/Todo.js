@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { baseService } from '../../api/baseService';
 import { helper } from '../../api/helper';
-import Row from '../row/Row';
 import RowContainer from '../row/RowContainer';
 import './Todo.css'
 
@@ -15,6 +14,7 @@ function Todo({ user, handleUser }) {
   const handleExit = () => {
     localStorage.removeItem("name");
     handleUser(null)
+    window.location.reload();
   }
   useEffect( () => {
     const mode = JSON.parse(localStorage.getItem('mode'));
@@ -77,7 +77,6 @@ function Todo({ user, handleUser }) {
   }, [])  
   return (
     <>
-      <div className='grid-container'>
         <div className='header'>
           <div className='left'>Hello {user}</div>          
           {requestStatus == "waiting" && (
@@ -114,9 +113,7 @@ function Todo({ user, handleUser }) {
           <RowContainer data = {data} setData = {setData} setButtonStatus = {setButtonStatus} todo = {todo} setTodo = {setTodo} setSelectedId = {setSelectedId}/ >
           <div className="demo-flex-spacer-down" />
         </div>
-      </div>
     </>    
   )
 }
-
 export default Todo

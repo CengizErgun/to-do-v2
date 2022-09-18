@@ -1,9 +1,3 @@
-/* ====================================================
-Recreating the email field from https://webflow.com/cms. Just an experiment - not as cross-browser friendly as the original.
-Changed:
-- animated gradient bar to :after element
-- flexbox for layout
-==================================================== */
 html {
     box-sizing: border-box;
     font-size: 10px;
@@ -48,8 +42,6 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    /* background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26); */
-    /* background-image: radial-gradient(circle at 0% 0%, rgb(214, 199, 157), #55597c 51%, #2c2f41);  */
   }
   
   .header {
@@ -58,6 +50,7 @@ html {
     color: white;
     display: flex;
     justify-content: space-between;
+    min-height: 30px;
   }
 
   .header .theme{
@@ -101,10 +94,12 @@ html {
   .container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
     max-width: 1600px;
-    padding: 0 15px;
-    margin: 0 auto;
+    padding: 40px 15px;
+    padding-top: 0px;
+    margin: 50px auto;
+    position: relative;
+    top: 40px;
   }
 
   

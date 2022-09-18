@@ -1,5 +1,4 @@
 
-
 .row {
     position: relative;
     display: flex;
@@ -13,11 +12,13 @@
     background: rgba(57, 63, 84, 0.8);
     color:white;
     font-size: 2.4rem;
+    word-wrap: break-word;
 }
 
 .row p{
     padding-left: 20px;
-
+    flex: 0 0 750px;
+    overflow: hidden /* */
 }
 
 .row .buttons {
