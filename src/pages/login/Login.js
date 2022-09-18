@@ -9,8 +9,7 @@ function Login({handleUser}) {
         }else{
             localStorage.setItem('name', JSON.stringify(name));
             handleUser(name);
-        }}  
-    
+        }}      
     return (
         <>
             <div className="container">
@@ -35,7 +34,6 @@ function Login({handleUser}) {
                     </div>
                 </div>
             </div>
-
         </>
     )
 }

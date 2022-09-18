@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import Login from './pages/login/Login';
 import Todo from './pages/todo/Todo';
+import './App'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -24,7 +24,6 @@ function App() {
         <div >
           <Login handleUser = {handleUser}/>
         </div>
-
       )}
     </>
   );

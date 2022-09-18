@@ -16,6 +16,7 @@ html {
   body, ul, li {
     margin: 0;
     padding: 0;
+
   }
   
   li {
@@ -47,7 +48,8 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
+    /* background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26); */
+    /* background-image: radial-gradient(circle at 0% 0%, rgb(214, 199, 157), #55597c 51%, #2c2f41);  */
   }
   
   .header {
@@ -56,6 +58,14 @@ html {
     color: white;
     display: flex;
     justify-content: space-between;
+  }
+
+  .header .theme{
+    margin-left: auto;
+    margin-right: 30px;
+  }
+  .header .wait {
+    margin-left: 150px;
   }
 
   .header button {
@@ -125,7 +135,7 @@ html {
     margin-top: 20px;
     border-radius: 2px;
     padding: 1.4rem 2rem 1.6rem;
-    background: rgba(57, 63, 84, 0.8);
+    background: #373B50;
   }
   .webflow-style-input:after {
     content: "";
@@ -150,6 +160,7 @@ html {
     font-size: 1.8rem;
     line-height: 2.4rem;
     vertical-align: middle;
+    background-color: #373B50;
   }
   .webflow-style-input input::-webkit-input-placeholder {
     color: #7881A1;

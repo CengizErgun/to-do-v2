@@ -11,9 +11,26 @@ function Todo({ user, handleUser }) {
   const [selectedId, setSelectedId] = useState(null)
   const [buttonStatus, setButtonStatus] = useState("Add")
   const [requestStatus, setRequestStatus] = useState("normal")
+  const [themeMode, setThemeMode] = useState("dark")
   const handleExit = () => {
-    localStorage.clear();
+    localStorage.removeItem("name");
     handleUser(null)
+  }
+  useEffect( () => {
+    const mode = JSON.parse(localStorage.getItem('mode'));
+    console.log(mode)
+    if (mode != null) {
+      setThemeMode(mode)
+    }
+  }, [])
+  const handleMode = () => {
+    if(themeMode == "dark"){
+      setThemeMode("light")
+      localStorage.setItem('mode', JSON.stringify("light"));
+    }else if(themeMode == "light"){
+      setThemeMode("dark")
+      localStorage.setItem('mode', JSON.stringify("dark"));
+    }    
   }
   const handleCreateOrUpdate = async () => {    
     switch(buttonStatus){
@@ -24,7 +41,6 @@ function Todo({ user, handleUser }) {
           setRequestStatus("normal")
           let newTodo = response
           setData([...data, newTodo])
-          // document.getElementById("myId").value = "";
           helper.makeInputContent("")
         }else{
           alert("Your todo length should have at least 3 letters")
@@ -43,9 +59,12 @@ function Todo({ user, handleUser }) {
         }
         console.log(todo)
         break;     
-    }
-
-    // baseService.add()
+    }  
+  }
+  if(themeMode == "dark"){
+    document.body.style.backgroundImage = "radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26)"
+  }else if(themeMode == "light"){
+    document.body.style.backgroundImage = "radial-gradient(circle at 0% 0%, rgb(214, 199, 157), #55597c 51%, #2c2f41)"
   }
   useEffect(() => {
     async function getAll(){
@@ -62,10 +81,24 @@ function Todo({ user, handleUser }) {
         <div className='header'>
           <div className='left'>Hello {user}</div>          
           {requestStatus == "waiting" && (
-            <div>
+            <div className='wait'>
               Please Wait...
             </div>
-          )}      
+          )}    
+          {console.log(themeMode)}
+          <div className='theme'>
+            <button onClick={() => handleMode()}>
+            { themeMode == "dark" ? (              
+            <div >
+              To Light
+            </div>
+          ) : (
+            <div >
+              To Dark
+            </div>
+          )}   
+            </button>
+          </div>  
           <div className='right'>
             <button onClick={() => handleExit()}>
               Logout
@@ -76,7 +109,7 @@ function Todo({ user, handleUser }) {
           <div className="demo-flex-spacer-up" />
           <div className="webflow-style-input">
             <input placeholder="What's your to do?" onChange={e => setTodo(e.target.value)} id="myId"/>
-            <button type="submit" onClick={() => handleCreateOrUpdate()}>{buttonStatus}</button>            
+            <button type="submit" onClick={() => handleCreateOrUpdate()}>{buttonStatus} Todo</button>            
           </div>
           <RowContainer data = {data} setData = {setData} setButtonStatus = {setButtonStatus} todo = {todo} setTodo = {setTodo} setSelectedId = {setSelectedId}/ >
           <div className="demo-flex-spacer-down" />
